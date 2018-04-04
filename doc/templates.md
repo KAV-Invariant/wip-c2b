@@ -11,12 +11,14 @@
 
 
 
+<a name="api_template_get"></a>
 # GET /api/template/{template_id} — получение шаблона
 
 - **template_id** *number* — id шаблона
 
 Ответ: [объект шаблона](./working-with-api.md#template) — шаблон как есть на данный момент, в том числе нумерация всех версий.
 
+<a name="api_template_get_vnum"></a>
 ## GET /api/template/{template_id}?v_num={v_num} — получить версию шаблона
 
 - **template_id** *number* — id шаблона
@@ -24,6 +26,7 @@
 
 Ответ: [объект версии шаблона](./working-with-api.md#template-version).
 
+<a name="api_template_vtime"></a>
 ## GET /api/template/{template_id}?v_time={v_time} — получить состояние на момент времени
 
 - **template_id** *number* — id шаблона
@@ -33,6 +36,7 @@
 
 
 
+<a name="api_template_cards"></a>
 ## GET /api/template/{template_id}/cards?limit={limit} — выпущенные карточки
 
 - **template_id** *number* — id шаблона
@@ -52,6 +56,7 @@
 ```
 
 
+<a name="api_template_update"></a>
 ## POST /api/template/{template_id}/update — изменение шаблона
 
 - **template_id** *number* — id шаблона
@@ -74,6 +79,7 @@
 
 
 
+<a name="api_template_reissue"></a>
 ## POST /api/template/{template_id}/reissue — перевыпуск всех карточек
 
 - **template_id** *number* — id шаблона
@@ -94,12 +100,13 @@
 
 
 
+<a name="api_template_notify"></a>
 ## POST /api/template/{template_id}/notify — отправка уведомления
 
 - **template_id** *number* — id шаблона
 - *POST* **notify_txt** *string* — текст уведомления
 
-Аналог [/api/card/notify](./cards.md#post-/api/card/{card_id}/notify-—-отправка-уведомления), только сразу на все выпущенные карточки.
+Аналог [/api/card/notify](./cards.md#api_card_notify), только сразу на все выпущенные карточки.
 
 > Сейчас notify_text статичен, т.е. всем клиентам одинаковый. Так, можно разослать "У нас новая акция", но "Здравствуйте, {owner_name}!" пока не получится.
 Есть предложения? Пишите issues ;)
@@ -116,6 +123,7 @@
 
  
  
+<a name="api_template_deactivate"></a>
 ## POST /api/template/{template_id}/deactivate — блокировка
 
 - **template_id** *number* — id шаблона
@@ -133,6 +141,7 @@
 ```
   
 
+<a name="api_template_activate"></a>
 ## POST /api/template/{template_id}/activate — разблокировка
 
 - **template_id** *number* — id шаблона
@@ -150,6 +159,7 @@
 ```
 
 
+<a name="api_template_stat"></a>
 ## GET /api/template/{template_id}/stat?... — детальная статистика
 
 - **template_id** *number* — id шаблона

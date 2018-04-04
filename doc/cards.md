@@ -6,7 +6,7 @@
 
 
 
-<a name="there_you_go"></a>
+<a name="api_card_issue"></a>
 ## POST /api/card/issue — выпуск карты
 
 - *POST* **template_id** *number* — id шаблона
@@ -23,12 +23,14 @@
 
 
 
+<a name="api_card_get"></a>
 ## GET /api/card/{card_id} — данные конкретной карточки
 
 - **card_id** *number* — id карточки
 
 Ответ: [объект карточки](./working-with-api.md#card) — карточка как есть на данный момент, в том числе нумерация всех версий.
 
+<a name="api_card_get_vnum"></a>
 ## GET /api/card/{card_id}?v_num={v_num} — получить версию карточки
 
 - **card_id** *number* — id карточки
@@ -36,6 +38,7 @@
 
 Ответ: [объект версии карточки](./working-with-api.md#card-version).
 
+<a name="api_card_get_vtime"></a>
 ## GET /api/card/{card_id}?v_time={v_time} — получить состояние на момент времени
 
 - **card_id** *number* — id карточки
@@ -45,6 +48,7 @@
 
    
 
+<a name="api_card_update"></a>
 ## POST /api/card/{card_id}/update — изменение данных карты
 
 - **card_id** *number* — id карточки
@@ -71,6 +75,7 @@
 ```
 
 
+<a name="api_card_notify"></a>
 ## POST /api/card/{card_id}/notify — отправка уведомления
 
 - **card_id** *number* — id карточки
@@ -91,6 +96,7 @@
 
 
 
+<a name="api_card_deactivate"></a>
 ## POST /api/card/{card_id}/deactivate — блокировка
 
 - **card_id** *number* — id карточки
@@ -107,6 +113,7 @@
 ```
   
 
+<a name="api_card_activate"></a>
 ## POST /api/card/{card_id}/activate — разблокировка
 
 - **card_id** *number* — id карточки
@@ -123,10 +130,11 @@
 ```
 
 
+<a name="api_card_stat"></a>
 ## GET /api/card/{card_id}/stat?... — детальная статистика
 
 > По конкретной карточке можно получить детальную статистику (и построить график, например), хотя чаще всего интересует 
-[статистика по шаблону](./templates.md#get-/api/template/{template_id}/stat?...-—-детальная-статистика) 
+[статистика по шаблону](./templates.md#api_template_stat) 
 (т.е. кумулятивно по всем выпущенным карточкам сразу)
 
 - **card_id** *number* — id карточки

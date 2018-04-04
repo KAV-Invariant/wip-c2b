@@ -1,6 +1,6 @@
 # override_data — переопределение данных карточки
 
-В методах выпуска карточки [/api/card/issue](./cards.md#post-/api/card/issue-—-выпуск-карты) и изменения данных [/api/card/update](./cards.md#post-/api/card/{card_id}/update-—-изменение-данных-карты)
+В методах выпуска карточки [/api/card/issue](./cards.md#api_card_issue) и изменения данных [/api/card/update](./cards.md#api_card_update)
 используется **override_data**. 
 
 - если значение null, то ключ возвращается к дефолтным данным шаблона
