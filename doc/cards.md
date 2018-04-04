@@ -13,7 +13,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "url": "https://full.url.to/card/download"
@@ -62,7 +62,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "changed": true            // true, если породилась новая версия и изменилось update_time
@@ -79,7 +79,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "changed": true            // true, если уведомление отправилось и изменилось update_time
@@ -98,7 +98,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "changed": true            // true, если была активна, а стала заблокирована
@@ -114,7 +114,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "changed": true            // true, если была заблокирована, а стала активна
@@ -142,7 +142,7 @@ GET /api/card/123/stat?field=bonus&timeFrom=1519765200&timeTo=1520715600&step=14
 
 Ответ:
 
-```json
+``` js
 {
   "card_id": 123,
   "field": "bonus",

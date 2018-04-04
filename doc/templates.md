@@ -40,7 +40,7 @@
 
 Ответ: 
 
-```json
+``` js
 {
   "cards_issued": 569,
   "cards_installed": 301,
@@ -64,7 +64,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "changed": true,              // true, если были изменены хоть какие-то свойства (даже title)
@@ -84,7 +84,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "changed": true,              // true, если есть (и была перевыпущена) хоть одна карточка 
@@ -106,7 +106,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "changed": true,              // true, если уведомления были отправлены 
@@ -124,7 +124,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "changed": true,              // true, если шаблон был активен, а стал заблокирован 
@@ -141,7 +141,7 @@
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "changed": true,              // true, если шаблон был заблокирован, а стал активен 
@@ -167,7 +167,7 @@ GET /api/template/123/stat?field=bonus&timeFrom=1509483600&timeTo=1519851600&ste
 
 Ответ:
 
-```json
+``` js
 {
   "template_id": 123,
   "field": "bonus",
