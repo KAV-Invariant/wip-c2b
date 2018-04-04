@@ -12,7 +12,7 @@
 
 
 <a name="api_template_get"></a>
-# GET /api/template/{template_id} — получение шаблона
+## GET /api/template/{template_id} — получение шаблона
 
 - **template_id** *number* — id шаблона
 
