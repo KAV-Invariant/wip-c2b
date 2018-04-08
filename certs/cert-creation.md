@@ -9,7 +9,7 @@
 
 Выберите слева пункт "Identifiers" → "Pass Type IDs". Нажмите "+" сверху. 
 
-В поле "Description" введите что угодно. Например, "MyShop Apple Pass ID". 
+В поле "Description" введите что угодно. Например, "For card2b pkpass signing". 
  
 В поле "ID" — уникальный id сертификата. 
 Обычно он вводится так. Если домен вашего сайта *main.myshop.ru*, то pass_type_id — "'pass.' + reverse-domain string", т.е. *pass.ru.myshop.main*.
@@ -21,9 +21,9 @@
 
 ## 2. Самое сложное. Создание сертификата
 
-**Цель**: получить на выходе .pem-файл. С помощью него будут подписываться карточки для Ваших клиентов ()pkpass-файлы для Apple Wallet).
+**Цель**: получить на выходе .pem-файл. С помощью него будут подписываться карточки для Ваших клиентов (pkpass-файлы для Apple Wallet).
 
-> Предполагается, что Вы с консолью на ты, и не составит труда исполнить несколько нижеприведённых команд. Они подходят для Mac, Windows и Linux. 
+> Предполагается, что Вы с консолью на ты, и не составит труда исполнить несколько нижеприведённых команд. Они подходят для Mac, Linux, а также Windows при наличии Cygwin или аналогов. 
 
 Создаём пустую папку (пусть *mycert*) и заходим в неё:
 
@@ -38,15 +38,14 @@ cd mycert
 openssl genrsa -out keyname.key 2048
 ```
 
-Создаём из него .certSigningRequest-файл:
+Создаём из него .certSigningRequest-файл. 
+В этой строчке вместо "contact@myshop.ru" введите e-mail Вашей огранизации, а вместо "MyShop Store" название компании по-английски.
 
 ```
 openssl req -new -key keyname.key -out req.certSigningRequest -subj "/emailAddress=contact@myshop.ru, CN=MyShop Store, C=RU"
 ```
 
-(вместо "contact@myshop.ru" введите e-mail Вашей огранизации, на кого создаётся сертификат, а вместо "MyShop Store" название компании по-английски)
-
-Вот этот req.certSigningRequest нужно будет загрузить в Apple-аккаунт, чтобы продолжить.
+Вот этот *req.certSigningRequest* нужно будет загрузить в Apple-аккаунт, чтобы продолжить.
 
 Сначала слева "Certificates" → "All" и плюсик:
 
@@ -60,7 +59,7 @@ openssl req -new -key keyname.key -out req.certSigningRequest -subj "/emailAddre
 
 ![screenshot: choose pass type id](../img/screen_cert_step_3.png)
 
-Потом ещё раз "Continue" ниже, на текст сверху не обращаем внимания (там написано, как подготовить .certSigningRequest-файл).
+Потом ещё раз "Continue" ниже, на текст сверху не обращаем внимания.
 
 Пришло время загрузить req.certSigningRequest, который мы сделали ранее.
 
@@ -72,7 +71,7 @@ openssl req -new -key keyname.key -out req.certSigningRequest -subj "/emailAddre
 
 **Итак, Вы скачали файл pass.cer с Apple**. Поместите его в ту же папку *mycert*.
 
-Итого, там сейчас 3 файла: keyname.key, req.certSigningRequest и pass.cer.
+Итого, там сейчас 3 файла: *keyname.key*, *req.certSigningRequest* и *pass.cer*.
 
 Делаем из этого .cer-файла первый .pem-файл:
 
@@ -98,7 +97,7 @@ openssl pkcs12 -in pass.p12 -out pass.pem -nodes
 
 **Всё!** Этот файл **pass.pem** и есть сертификат подлинности, который нужно загрузить в аккаунт на card2b. 
 
-> Небольшая справка. pass_type_id будет зашит внутрь этого .pem-ника, т.к. pass.cer был сгенерирован из того же Apple-аккаунта.
+> Небольшая справка. pass_type_id будет зашит внутрь этого .pem-ника, т.к. *pass.cer* был сгенерирован из того же Apple-аккаунта.
 
 
 ## 3. p8-файл, чтобы слать пуши
@@ -113,7 +112,7 @@ pem-файл из шага 2 подписывает pkpass-файлы. Но эт
 
 Выберите слева пункт "Keys" → "All". Нажмите "+" сверху. 
 
-В поле "Name" введите что угодно. Например, "Send pushes".
+В поле "Name" введите что угодно. Например, "MyShop pushes".
 
 Ниже отметьте галочку "APNs". 
 
@@ -125,7 +124,7 @@ pem-файл из шага 2 подписывает pkpass-файлы. Но эт
 
 ![screenshot](../img/screen_key_step_2.png)
 
-Нажмите "Download". Скачается p8-файл. Этот файл **AuthKey_XXX.p8** и нужно загрузить в аккаунт на card2b вместе с pem-ником. 
+Нажмите "Download". Скачается файл **AuthKey_XXX.p8**, его и нужно загрузить в аккаунт на card2b вместе с pem-ником. 
 А также указать Key ID (*WT7L89SY2G* на скрине выше) — это тоже нужно для пушей.
 
 
@@ -138,4 +137,4 @@ pem-файл из шага 2 подписывает pkpass-файлы. Но эт
 
 Потом его можно будет выбрать как сертификат для любого шаблона на вкладке "Настройка и API".
 
-**Почему всё так сложно?** Ответ на это есть в [нашем FAQ](./certs-faq.md#q:-почему-всё-так-сложно?)
+**Почему всё так сложно?** Ответ на это есть в [нашем FAQ](./certs-faq.md)
