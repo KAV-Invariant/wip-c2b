@@ -8,3 +8,5 @@
 - [Общие принципы работы с API](./doc/working-with-api.md)
 - [API для карточек](./doc/cards.md)
 - [API для шаблонов](./doc/templates.md)
+- [FAQ по сертификатам](./certs/certs-faq.md)
+- [Как создать сертификат: подробная инструкция](./certs/cert-creation.md)
