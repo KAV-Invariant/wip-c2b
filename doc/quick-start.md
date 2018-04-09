@@ -69,7 +69,9 @@ curl "http://{domain}/api/card/ID?api_token=TOKEN
   "last_request_time": "2018-04-09T19:54:12.000Z",
   "n_installed": 1,
   "deactivated": false,
-  "versions": [ { "v_num":1, "valid_from":"2018-04-09T19:53:08.000Z" } ]
+  "versions": [ 
+    {"v_num":1, "valid_from": "2018-04-09T19:53:08.000Z"} 
+  ]
 }
 ```
 
@@ -106,7 +108,7 @@ curl -H "Content-Type: application/json" \
     -d '{"notify_text": "Привет! Так можно делать вместо SMS-ок"}'
 ```  
 
-На заблокированном экране Вашего телефона отобразится уведомление. На сайте то же самое можно сделать здесь:
+На заблокированном экране Вашего телефона отобразится уведомление. На сайте это делается здесь:
  
 ![issued card](../img/screen_quickstart_ui2.png)
 
