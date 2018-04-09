@@ -58,10 +58,10 @@
 
 Пример. 
 1. У шаблона **default_data** = `{"bonus":0, "status":"Начальный"}`.
-2. Выпуск (issue) карты **override_data** = `{"bonus":10}` ⇒ **full_data** = `{"bonus":10, "status":"Начальный"}`
-3. update данных **override_data** = `{"status":"VIP"}` ⇒ **full_data** = `{"bonus":10, "status":"VIP"}`
-4. update данных **override_data** = `{"bonus":20}` ⇒ **full_data** = `{"bonus":20, "status":"VIP"}`  
-5. update данных **override_data** = `{"bonus":30, "status":null}` ⇒ **full_data** = `{"bonus":30, "status":"Начальный"}`
+2. Выпуск (issue) карты **override_data** = `{"bonus":10}` ⇒ **data** = `{"bonus":10, "status":"Начальный"}`
+3. update данных **override_data** = `{"status":"VIP"}` ⇒ **data** = `{"bonus":10, "status":"VIP"}`
+4. update данных **override_data** = `{"bonus":20}` ⇒ **data** = `{"bonus":20, "status":"VIP"}`  
+5. update данных **override_data** = `{"bonus":30, "status":null}` ⇒ **data** = `{"bonus":30, "status":"Начальный"}`
 
 То есть при update нужно прислать только то, что нужно изменить, остальное состояние сохранится.
 
@@ -140,7 +140,7 @@
 - **card_id** *number* — id карточки
 - **timeFrom** *unix timestamp* — с какого момента времени
 - **timeTo** *unix timestamp* — до какого момента времени
-- **field** *string* — ключ из *full_data*; значения должны быть числовыми (т.е. можно получить статистику по bonus, но нельзя по status из примеров выше)
+- **field** *string* — ключ из *data*; значения должны быть числовыми (т.е. можно получить статистику по bonus, но нельзя по status из примеров выше)
 - **step** *number* — с каким шагом, в минутах
 
 Пример: запросим, как менялся *bonus* у *123*-й карты с *28 февраля* по *11 марта* с шагом в *сутки*:
