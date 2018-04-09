@@ -40,7 +40,7 @@ curl -H "Content-Type: application/json" \
 
 В кабинете на вкладке "Выпущенные карточки" она появилась: 
 
-![issued card](../img/screen_quickstart_ui1.png)
+![issued card in ui](../img/screen_quickstart_ui_issued.png)
 
 **Пройдите по ссылке url и установите карточку на свой телефон**. Это будто бы поставила Мария. 
 
@@ -70,7 +70,7 @@ curl "http://{domain}/api/card/ID?api_token=TOKEN
   "n_installed": 1,
   "deactivated": false,
   "versions": [ 
-    {"v_num":1, "valid_from": "2018-04-09T19:53:08.000Z"} 
+    {"v_num": 1, "valid_from": "2018-04-09T19:53:08.000Z"} 
   ]
 }
 ```
@@ -110,7 +110,7 @@ curl -H "Content-Type: application/json" \
 
 На заблокированном экране Вашего телефона отобразится уведомление. На сайте это делается здесь:
  
-![issued card](../img/screen_quickstart_ui2.png)
+![send notification to card in ui](../img/screen_quickstart_ui_notify.png)
 
 
 ## 7. Что дальше?
