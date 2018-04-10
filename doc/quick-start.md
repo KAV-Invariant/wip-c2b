@@ -7,8 +7,11 @@
 
 ## 1. Создаём шаблон
 
-Идём по ссылке http://{domain}/cabinet/templates/new?example=apidoc . 
+Идём по ссылке https://{domain}/cabinet/templates/new?example=apidoc . 
 Нажимаем "Сохранить".
+
+**Внимание!** Даже если у вас уже есть какой-то шаблон — лучше создать новый по ссылке. 
+Так будет проще, т.к. данные подобраны специально для него.
 
 
 ## 2. Получаем template_id и api_token
@@ -24,12 +27,12 @@
 
 ## 3. Выпускаем карточку по API
 
-[Отправляем POST](./cards.md#api_card_issue). Подставьте **TOKEN** и **ID** шаблона:
+[Отправляем POST](./cards.md#api_card_issue). Подставьте **TOKEN** и **TEMPLATE_ID**:
 
 ```bash
 curl -H "Content-Type: application/json" \
-    "http://{domain}/api/card/issue?api_token=TOKEN" \
-    -d '{"template_id":ID, "override_data": {"owner_name":"Мария"}}'
+    "https://{domain}/api/card/issue?api_token=TOKEN" \
+    -d '{"template_id":TEMPLATE_ID, "override_data": {"owner_name":"Мария"}}'
 ```  
 
 Ответ будет примерно такой:
@@ -47,10 +50,10 @@ curl -H "Content-Type: application/json" \
 
 ## 4. Получаем карточку по API
 
-[Делаем GET](./cards.md#api_card_get). Подставьте **TOKEN** и **ID** карточки: 
+[Делаем GET](./cards.md#api_card_get). Подставьте **TOKEN** и **CARD_ID**: 
 
 ```bash
-curl "http://{domain}/api/card/ID?api_token=TOKEN
+curl "https://{domain}/api/card/CARD_ID?api_token=TOKEN
 ```
 
 Ответ будет [содержать карточку](./working-with-api.md#card):
@@ -78,11 +81,11 @@ curl "http://{domain}/api/card/ID?api_token=TOKEN
 
 ## 5. Изменяем карточку по API
 
-[Сделаем](./cards.md#api_card_update) Марии бонус 10. Подставьте **TOKEN** и **ID** карточки:
+[Сделаем](./cards.md#api_card_update) Марии бонус 10. Подставьте **TOKEN** и **CARD_ID**:
 
 ```bash
 curl -H "Content-Type: application/json" \
-    "http://{domain}/api/card/ID/update?api_token=TOKEN" \
+    "https://{domain}/api/card/CARD_ID/update?api_token=TOKEN" \
     -d '{"override_data": {"bonus":10}}'
 ```  
 
@@ -100,13 +103,15 @@ curl -H "Content-Type: application/json" \
 
 ## 6. Отправляем уведомление на карточку
 
-[Делаем POST](./cards.md#api_card_notify). Подставьте **TOKEN** и **ID** карточки:
+[Делаем POST](./cards.md#api_card_notify). Подставьте **TOKEN** и **CARD_ID**:
 
 ```bash
 curl -H "Content-Type: application/json" \
-    "http://{domain}/api/card/ID/notify?api_token=TOKEN" \
+    "https://{domain}/api/card/CARD_ID/notify?api_token=TOKEN" \
     -d '{"notify_text": "Привет! Так можно делать вместо SMS-ок"}'
 ```  
+
+![notify on lock screen](../img/notify_on_lockscreen.jpg)
 
 На заблокированном экране Вашего телефона отобразится уведомление. На сайте это делается здесь:
  
